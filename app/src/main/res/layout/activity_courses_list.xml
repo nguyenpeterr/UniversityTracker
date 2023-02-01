@@ -39,27 +39,27 @@
         android:layout_width="match_parent"
 
 
-        android:layout_height="match_parent"
+        android:layout_height="674dp"
         app:layout_anchor="@+id/nestedScrollView"
         app:layout_anchorGravity="center"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            tools:listitem="@layout/layout_courses_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
-
-        </RelativeLayout>
-
+            android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/layout_courses_list"
-        android:layout_width="match_parent"
-        android:layout_height="672dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:clickable="true"
         app:layout_anchor="@+id/nestedScrollView"
-        app:layout_anchorGravity="center" />
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
