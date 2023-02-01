@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">C196 Term Application</string>
     <string name="termslist_title">Terms List</string>
+    <string name="courseslist_title">Courses List</string>
+    <string name="assessmentsist_title">Assessments List</string>
 </resources>
