@@ -55,9 +55,9 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/layout_main"
+        layout="@layout/layout_terms_list"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="672dp"
         app:layout_anchor="@+id/nestedScrollView"
         app:layout_anchorGravity="center" />
 

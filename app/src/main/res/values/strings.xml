@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">C196 Term Application</string>
+    <string name="termslist_title">Terms List</string>
 </resources>

@@ -12,7 +12,11 @@
         android:theme="@style/Theme.Nguyenpeter_C196"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".TermsListActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/termslist_title"
+            ></activity>
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
