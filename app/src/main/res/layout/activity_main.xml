@@ -27,7 +27,9 @@
                 android:id="@+id/toolbar_top"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:backgroundTint="#2196F3"></androidx.appcompat.widget.Toolbar>
+                android:backgroundTint="#2196F3">
+
+            </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
