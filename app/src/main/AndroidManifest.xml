@@ -22,6 +22,11 @@
             android:label="@string/courseslist_title"
             ></activity>
         <activity
+            android:name=".CoursesActivity"
+            android:parentActivityName=".CoursesListActivity"
+            android:label="@string/coursesedit"
+            ></activity>
+        <activity
             android:name=".AssessmentsListActivity"
             android:parentActivityName=".MainActivity"
             android:label="@string/assessmentsist_title"

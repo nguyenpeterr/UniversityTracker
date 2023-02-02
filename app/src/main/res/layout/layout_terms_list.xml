@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:maxLines="1"
-            android:text="Term #"
+            android:text="@string/termslist"
             android:layout_toStartOf="@id/tv_term"
             android:layout_alignParentStart="true"
             android:ellipsize="end">

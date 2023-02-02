@@ -3,4 +3,10 @@
     <string name="termslist_title">Terms List</string>
     <string name="courseslist_title">Courses List</string>
     <string name="assessmentsist_title">Assessments List</string>
+    <string name="termslist">Term</string>
+    <string name="asseessmentlist">Assessment Name</string>
+    <string name="courseslist">Course Name</string>
+    <string name="coursesedit">Course Editor</string>
+    <string name="courseterm">Course Term</string>
+    <string name="instructorslist">Course Instructor</string>
 </resources>
