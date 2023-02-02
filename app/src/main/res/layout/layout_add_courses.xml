@@ -121,61 +121,67 @@
         android:id="@+id/tv_course_instructor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:text="Course Instructor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_course_status" />
 
-    <Button
-        android:id="@+id/addCiButton"
+    <TextView
+        android:id="@+id/tv_course_instructor_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/addci"
-        app:layout_constraintEnd_toEndOf="@+id/rv_course_instructor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_course_instructor" />
+        android:text="Instructor"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_course_instructor"
+        app:layout_constraintStart_toStartOf="@+id/course_spinner" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_course_instructor"
-        android:layout_width="283dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor"
-        tools:listitem="@layout/layout_ci_list">
-
-    </androidx.recyclerview.widget.RecyclerView>
+    <Spinner
+        android:id="@+id/ci_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="8"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_course_instructor"
+        app:layout_constraintStart_toEndOf="@+id/tv_course_instructor_text" />
 
     <TextView
         android:id="@+id/tv_assessments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="80dp"
         android:text="Assessments"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCiButton" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_assessments"
-        android:layout_width="283dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_assessments"
-        tools:listitem="@layout/layout_assessments_list" />
-
-    <Button
-        android:id="@+id/addAssessmentButton"
+    <TextView
+        android:id="@+id/selectedCI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/addassessment"
-        app:layout_constraintEnd_toEndOf="@+id/rv_assessments"
-        app:layout_constraintStart_toStartOf="@+id/rv_assessments"
-        app:layout_constraintTop_toBottomOf="@+id/rv_assessments" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="Selected CI"
+        app:layout_constraintEnd_toEndOf="@+id/ci_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
+
+    <TextView
+        android:id="@+id/tv_assessment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assessment"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_assessments"
+        app:layout_constraintStart_toStartOf="@+id/tv_course_instructor_text" />
+
+    <Spinner
+        android:id="@+id/assessment_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_assessments"
+        app:layout_constraintStart_toEndOf="@+id/tv_assessment_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
