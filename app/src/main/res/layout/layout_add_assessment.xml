@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".CoursesActivity"
-    tools:showIn="@layout/activity_add_courses">
+    tools:context=".AssessmentsListActivity">
 
     <TextView
         android:id="@+id/tv_assessment_name"
@@ -15,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:text="Course Name"
+        android:text="Assessment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginTop="30dp" />
@@ -90,12 +89,12 @@
         tools:layout_editor_absoluteY="101dp" />
 
     <TextView
-        android:id="@+id/tv_course_status"
+        android:id="@+id/tv_assessment_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:text="Status"
+        android:text="Type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_end_date" />
 
@@ -106,76 +105,60 @@
         android:layout_marginStart="8dp"
         android:ems="8"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_course_status"
-        app:layout_constraintStart_toEndOf="@+id/tv_course_status_text" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_assessment_type"
+        app:layout_constraintStart_toEndOf="@+id/tv_assessment_type_text" />
 
     <TextView
-        android:id="@+id/tv_course_status_text"
+        android:id="@+id/tv_assessment_type_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_course_status"
+        android:text="Type"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_assessment_type"
         app:layout_constraintStart_toStartOf="@+id/et_end_date" />
 
     <TextView
-        android:id="@+id/tv_course_instructor"
+        android:id="@+id/tv_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:text="Course Instructor"
+        android:text="Set Alert"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_course_status" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_assessment_type" />
+
+    <CheckBox
+        android:id="@+id/cb_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Date"
+        app:layout_constraintStart_toStartOf="@+id/tv_assessment_type_text"
+        tools:layout_editor_absoluteY="212dp" />
+
+    <CheckBox
+        android:id="@+id/cb_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Date"
+        app:layout_constraintEnd_toStartOf="@+id/endCalendarButton"
+        app:layout_constraintStart_toEndOf="@+id/cb_start"
+        tools:layout_editor_absoluteY="212dp" />
 
     <Button
-        android:id="@+id/addCiButton"
+        android:id="@+id/saveAssessmentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/addci"
-        app:layout_constraintEnd_toEndOf="@+id/rv_course_instructor"
+        android:text="Save"
+        app:layout_constraintEnd_toStartOf="@+id/cancelAssessmentButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_course_instructor" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_course_instructor"
-        android:layout_width="283dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor"
-        tools:listitem="@layout/layout_ci_list">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <TextView
-        android:id="@+id/tv_assessments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Assessments"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCiButton" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_assessments"
-        android:layout_width="283dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_assessments"
-        tools:listitem="@layout/layout_assessments_list" />
+        tools:layout_editor_absoluteY="308dp" />
 
     <Button
-        android:id="@+id/addAssessmentButton"
+        android:id="@+id/cancelAssessmentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/addassessment"
-        app:layout_constraintEnd_toEndOf="@+id/rv_assessments"
-        app:layout_constraintStart_toStartOf="@+id/rv_assessments"
-        app:layout_constraintTop_toBottomOf="@+id/rv_assessments" />
-
+        android:layout_marginEnd="75dp"
+        android:text="Cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="308dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

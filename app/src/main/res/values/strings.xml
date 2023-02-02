@@ -9,4 +9,6 @@
     <string name="coursesedit">Course Editor</string>
     <string name="courseterm">Course Term</string>
     <string name="instructorslist">Course Instructor</string>
+    <string name="addci">Add Instructor</string>
+    <string name="addassessment">Add Assessment</string>
 </resources>
