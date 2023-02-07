@@ -65,7 +65,7 @@
         tools:layout_editor_absoluteY="308dp" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/et_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
