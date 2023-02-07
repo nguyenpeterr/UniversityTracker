@@ -32,7 +32,7 @@
         app:layout_constraintStart_toEndOf="@+id/tv_assessment_name" />
 
     <TextView
-        android:id="@+id/tv_start_date"
+        android:id="@+id/tv_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -48,7 +48,7 @@
         android:autofillHints="@string/courseslist"
         android:ems="9"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_start_date"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_note"
         app:layout_constraintStart_toStartOf="@+id/et_assessment_name" />
 
     <TextView
@@ -59,7 +59,7 @@
         android:layout_marginTop="30dp"
         android:text="End Date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_start_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_note" />
 
     <EditText
         android:id="@+id/et_end_date"
@@ -145,15 +145,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_course_instructor"
         app:layout_constraintStart_toEndOf="@+id/tv_course_instructor_text" />
 
-    <TextView
-        android:id="@+id/tv_assessments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="80dp"
-        android:text="Assessments"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
 
     <TextView
         android:id="@+id/selectedCI"
@@ -163,6 +154,16 @@
         android:layout_marginTop="30dp"
         android:text="Selected CI"
         app:layout_constraintEnd_toEndOf="@+id/ci_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
+
+    <TextView
+        android:id="@+id/tv_assessments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="80dp"
+        android:text="Assessments"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
 
@@ -178,10 +179,31 @@
         android:id="@+id/assessment_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:ems="8"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/tv_assessments"
         app:layout_constraintStart_toEndOf="@+id/tv_assessment_text" />
+
+    <TextView
+        android:id="@+id/tv_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="80dp"
+        android:text="Notes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_assessments" />
+
+
+    <Button
+        android:id="@+id/addNoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAddNoteButton"
+        android:text="Add Note"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_notes"
+        app:layout_constraintStart_toStartOf="@+id/tv_assessment_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

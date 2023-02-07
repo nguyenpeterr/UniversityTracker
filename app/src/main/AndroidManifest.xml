@@ -31,6 +31,16 @@
             android:parentActivityName=".MainActivity"
             android:label="@string/assessmentsist_title"
             ></activity>
+        <activity
+            android:name=".AssessmentsActivity"
+            android:parentActivityName=".AssessmentsListActivity"
+            android:label="@string/editassessment"
+            ></activity>
+        <activity
+            android:name=".TermActivity"
+            android:parentActivityName=".TermsListActivity"
+            android:label="@string/editterm"
+            ></activity>
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

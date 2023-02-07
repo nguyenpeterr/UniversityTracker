@@ -11,4 +11,8 @@
     <string name="instructorslist">Course Instructor</string>
     <string name="addci">Add Instructor</string>
     <string name="addassessment">Add Assessment</string>
+    <string name="editassessment">Assessment Editor</string>
+    <string name="termname">Term Name</string>
+    <string name="editterm">Term Editor</string>
+    <string name="notelist">Note</string>
 </resources>

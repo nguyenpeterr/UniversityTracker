@@ -7,17 +7,18 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class CoursesActivity extends AppCompatActivity {
+public class NotesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_courses);
+        setContentView(R.layout.activity_add_note);
 
     }
 
-    public void onAddNoteButton(View v) {
-        Intent i = new Intent(this, NotesActivity.class);
+    public void onCancelAssessment(View v) {
+        //return back to assessment list on cancel button
+        Intent i = new Intent(this, NotesListActivity.class);
         startActivity(i);
     }
 

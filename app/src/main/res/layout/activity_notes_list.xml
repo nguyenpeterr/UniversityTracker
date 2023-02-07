@@ -45,7 +45,7 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.recyclerview.widget.RecyclerView
-            tools:listitem="@layout/layout_assessments_list"
+            tools:listitem="@layout/layout_notes_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
@@ -57,7 +57,7 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="25dp"
         android:clickable="true"
-        android:onClick="faAddAssessment"
+        android:onClick="faAddNote"
         app:backgroundTint="#2196F3"
         app:layout_anchor="@+id/nestedScrollView"
         app:layout_anchorGravity="bottom|end"
