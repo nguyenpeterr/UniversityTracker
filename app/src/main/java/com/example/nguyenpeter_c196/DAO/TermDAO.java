@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.nguyenpeter_c196.Entities.TermEntity;
 
@@ -19,6 +20,9 @@ public interface TermDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllTerms(List<TermEntity> terms);
+
+    @Update
+    void updateTerm(TermEntity termEntity);
 
     @Delete
     void deleteTerm(TermEntity termEntity);

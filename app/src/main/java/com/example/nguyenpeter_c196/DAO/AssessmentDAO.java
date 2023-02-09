@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.nguyenpeter_c196.Entities.AssessmentEntity;
 
@@ -19,6 +20,9 @@ public interface AssessmentDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllAssessments(List<AssessmentEntity> assessments);
+
+    @Update
+    void updateAssessment(AssessmentEntity assessmentEntity);
 
     @Delete
     void deleteAssessment(AssessmentEntity assessmentEntity);

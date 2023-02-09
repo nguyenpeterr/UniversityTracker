@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.nguyenpeter_c196.Entities.CourseEntity;
 
@@ -20,6 +21,9 @@ public interface CourseDAO {
     //Sample data
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllCourses(List<CourseEntity> courses);
+
+    @Update
+    void updateCourse(CourseEntity courseEntity);
 
     @Delete
     void deleteCourse(CourseEntity courseEntity);

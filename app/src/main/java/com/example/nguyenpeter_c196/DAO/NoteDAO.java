@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.nguyenpeter_c196.Entities.NoteEntity;
 
@@ -19,6 +20,9 @@ public interface NoteDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllNotes(List<NoteEntity> notes);
+
+    @Update
+    void updateNote(NoteEntity noteEntity);
 
     @Delete
     void deleteNote(NoteEntity noteEntity);

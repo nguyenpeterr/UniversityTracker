@@ -21,9 +21,9 @@ import com.example.nguyenpeter_c196.Entities.NoteEntity;
 import com.example.nguyenpeter_c196.Entities.TermEntity;
 
 @androidx.room.Database(entities = {AssessmentEntity.class, CourseEntity.class, InstructorEntity.class, NoteEntity.class, TermEntity.class}, version = 1)
-public abstract class Database extends RoomDatabase {
+public abstract class DatabaseBuilder extends RoomDatabase {
     private static final String DATABASE_NAME = "C196.db";
-    private static volatile Database databaseInstance;
+    private static volatile DatabaseBuilder databaseInstance;
     private static final Object LOCK = new Object();
 
 
@@ -33,17 +33,17 @@ public abstract class Database extends RoomDatabase {
     public abstract InstructorDAO instructorDAO();
     public abstract NoteDAO noteDAO();
 
-    public static Database getDatabaseInstance(Context context) {
+    public static DatabaseBuilder getDatabaseInstance(Context context) {
 
         if (databaseInstance == null) {
             synchronized (LOCK) {
                 if (databaseInstance == null) {
 
-                    databaseInstance = Room.databaseBuilder(context.getApplicationContext(), Database.class, DATABASE_NAME)
+                    databaseInstance = Room.databaseBuilder(context.getApplicationContext(), DatabaseBuilder.class, DATABASE_NAME)
                             .fallbackToDestructiveMigration()
                             .addCallback(roomCallBack)
                             .build();
-                    Toast.makeText(context, "Database being created", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "DatabaseBuilder being created", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -67,7 +67,7 @@ public abstract class Database extends RoomDatabase {
         private InstructorDAO instructorDAO;
         private NoteDAO noteDAO;
 
-        private PopulateDbAsyncTask(Database db) {
+        private PopulateDbAsyncTask(DatabaseBuilder db) {
 
             termDAO = db.termDAO();
             courseDAO = db.courseDAO();
