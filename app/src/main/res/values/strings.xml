@@ -15,4 +15,8 @@
     <string name="termname">Term Name</string>
     <string name="editterm">Term Editor</string>
     <string name="notelist">Note</string>
+    <string name="menuterms">Terms</string>
+    <string name="menuassessments">Assessments</string>
+    <string name="menucourses">Courses</string>
+    <string name="menuhome">Home</string>
 </resources>
