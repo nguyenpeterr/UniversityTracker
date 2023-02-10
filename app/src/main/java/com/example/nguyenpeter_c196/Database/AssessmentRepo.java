@@ -15,16 +15,16 @@ import java.util.concurrent.Executors;
 public class AssessmentRepo {
     private AssessmentDAO assessmentDAO;
     private AssessmentEntity mAssessment;
-    private LiveData<List<AssessmentEntity>> allAssessments;
+    private List<AssessmentEntity> allAssessments;
     private static final int NumberOfThreads = 4;
     static final ExecutorService dbExec = Executors.newFixedThreadPool(NumberOfThreads);
 
     public AssessmentRepo(Application application) {
         DatabaseBuilder database = DatabaseBuilder.getDatabaseInstance(application);
         assessmentDAO = database.assessmentDAO();
-        allAssessments = assessmentDAO.getAllAssessments();
-
     }
+
+
 
     public void insertAssessment(AssessmentEntity assessment){
         dbExec.execute(()-> {
@@ -48,9 +48,9 @@ public class AssessmentRepo {
         }
     }
 
-    public void deleteAssessment(AssessmentEntity assessment){
+    public void deleteAssessment(int assessmentID){
         dbExec.execute(()-> {
-            assessmentDAO.deleteAssessment(assessment);
+            assessmentDAO.deleteAssessmentByID(assessmentID);
         });
         try {
             Thread.sleep(1000);
@@ -71,58 +71,40 @@ public class AssessmentRepo {
         }
     }
 
-    //Get methods
-    public LiveData<List<AssessmentEntity>> getAllAssessments(){
+    public List<AssessmentEntity> getAllAssessments(){
+        dbExec.execute(()-> {
+            allAssessments = assessmentDAO.getAllAssessments();
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return allAssessments;
     }
 
     public AssessmentEntity getAssessmentByID(int assessmentID){
-        return assessmentDAO.getAssessmentByID(assessmentID);
+        dbExec.execute(()-> {
+            mAssessment = assessmentDAO.getAssessmentByID(assessmentID);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAssessment;
     }
 
-    public LiveData<List<AssessmentEntity>> getAssessmentByCourse(int assessmentCourse){
-        return assessmentDAO.getAssessmentByCourse(assessmentCourse);
+    public List<AssessmentEntity> getAssessmentByCourse(int assessmentCourse){
+        dbExec.execute(()-> {
+            allAssessments = assessmentDAO.getAssessmentByCourse(assessmentCourse);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return allAssessments;
     }
 
-//    private static class InsertAssessmentAsyncTask extends AsyncTask<AssessmentEntity, Void, Void> {
-//        private AssessmentDAO assessmentDAO;
-//
-//        private InsertAssessmentAsyncTask(AssessmentDAO assessmentDAO){
-//            this.assessmentDAO = assessmentDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(AssessmentEntity... assessmentEntities) {
-//            assessmentDAO.insertAssessment(assessmentEntities[0]);
-//            return null;
-//        }
-//    }
-//
-//    private static class DeleteAssessmentAsyncTask extends AsyncTask<AssessmentEntity, Void, Void>{
-//        private AssessmentDAO assessmentDAO;
-//
-//        private DeleteAssessmentAsyncTask(AssessmentDAO assessmentDAO){
-//            this.assessmentDAO = assessmentDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(AssessmentEntity... assessmentEntities) {
-//            assessmentDAO.deleteAssessment(assessmentEntities[0]);
-//            return null;
-//        }
-//    }
-//
-//    private static class DeleteAllAssessmentsAsyncTask extends AsyncTask<Void, Void, Void>{
-//        private AssessmentDAO assessmentDAO;
-//
-//        private DeleteAllAssessmentsAsyncTask(AssessmentDAO assessmentDAO){
-//            this.assessmentDAO = assessmentDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            assessmentDAO.deleteAllAssessments();
-//            return null;
-//        }
-//    }
 }

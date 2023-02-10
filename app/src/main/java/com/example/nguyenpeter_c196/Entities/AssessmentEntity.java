@@ -9,13 +9,16 @@ public class AssessmentEntity {
     @PrimaryKey(autoGenerate = true)
     private int assessmentID;
     private String assessmentName;
-    private String assessmentDate;
+    private String assessmentStart;
+    private String assessmentEnd;
     private String assessmentType;
-    private String courseID;
+    private int courseID;
 
-    public AssessmentEntity(String assessmentName, String assessmentDate, String assessmentType, String courseID) {
+    public AssessmentEntity(int assessmentID, String assessmentName, String assessmentStart, String assessmentEnd, String assessmentType, int courseID) {
+        this.assessmentID = assessmentID;
         this.assessmentName = assessmentName;
-        this.assessmentDate = assessmentDate;
+        this.assessmentStart = assessmentStart;
+        this.assessmentEnd = assessmentEnd;
         this.assessmentType = assessmentType;
         this.courseID = courseID;
     }
@@ -36,12 +39,20 @@ public class AssessmentEntity {
         this.assessmentName = assessmentName;
     }
 
-    public String getAssessmentDate() {
-        return assessmentDate;
+    public String getAssessmentStart() {
+        return assessmentStart;
     }
 
-    public void setAssessmentDate(String assessmentDate) {
-        this.assessmentDate = assessmentDate;
+    public void setAssessmentStart(String assessmentStart) {
+        this.assessmentStart = assessmentStart;
+    }
+
+    public String getAssessmentEnd() {
+        return assessmentEnd;
+    }
+
+    public void setAssessmentEnd(String assessmentEnd) {
+        this.assessmentEnd = assessmentEnd;
     }
 
     public String getAssessmentType() {
@@ -52,11 +63,21 @@ public class AssessmentEntity {
         this.assessmentType = assessmentType;
     }
 
-    public String getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
+    }
+
+    public String toString() {
+        return "Assessment{" +
+                "assessmentID=" + assessmentID +
+                ", assessmentName='" + assessmentName + '\'' +
+                ", assessmentStart'" + assessmentStart + '\'' +
+                ", assessmentEnd'" + assessmentEnd + '\'' +
+                ", assessmentType'" + assessmentType + '\'' +
+                ", courseID" + courseID + '}';
     }
 }

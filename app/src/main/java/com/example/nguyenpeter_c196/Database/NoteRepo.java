@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 public class NoteRepo {
     private NoteDAO noteDAO;
 
-    private LiveData<List<NoteEntity>> allNotes;
+    private List<NoteEntity> allNotes;
     private static final int NumberOfThreads = 4;
     static final ExecutorService dbExec = Executors.newFixedThreadPool(NumberOfThreads);
 
@@ -78,7 +78,7 @@ public class NoteRepo {
     }
 
     //Get methods
-    public LiveData<List<NoteEntity>> getAllNotes(){
+    public List<NoteEntity> getAllNotes(){
         return allNotes;
     }
 
@@ -86,7 +86,7 @@ public class NoteRepo {
         return noteDAO.getNoteByID(noteID);
     }
 
-    public LiveData<List<NoteEntity>> getNotesByAssessment(int noteAssessment){
+    public List<NoteEntity> getNotesByAssessment(int noteAssessment){
         return noteDAO.getNoteByAssessment(noteAssessment);
     }
 //

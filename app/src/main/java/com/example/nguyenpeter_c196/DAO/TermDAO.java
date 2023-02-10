@@ -31,7 +31,7 @@ public interface TermDAO {
     TermEntity getTermByID(int termID);
 
     @Query("SELECT * FROM terms ORDER BY termStartDate ASC")
-    LiveData<List<TermEntity>> getAllTerms();
+    List<TermEntity> getAllTerms();
 
     @Query("DELETE FROM terms")
     int deleteAllTerms();

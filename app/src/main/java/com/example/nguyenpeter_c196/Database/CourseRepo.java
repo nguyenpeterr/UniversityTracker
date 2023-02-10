@@ -85,7 +85,7 @@ public class CourseRepo {
         return courseDAO.getCourseByID(courseID);
     }
 
-    public LiveData<List<CourseEntity>> getCoursesByTerm(int termID){
+    public List<CourseEntity> getCoursesByTerm(int termID){
         return courseDAO.getCoursesByTerm(termID);
     }
 

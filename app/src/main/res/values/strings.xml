@@ -22,4 +22,12 @@
     <string name="alertstart">Set Alert for Start Date</string>
     <string name="alertend">Set Alert for End Date</string>
     <string name="sharenote">Share Note</string>
+    <string name="channelname">Application</string>
+    <string name="channeldesc">Notification Channel</string>
+
+    <string name="C196_Application">AssessmentSpinner</string>
+    <string-array name="assessments_array">
+        <item>Performance</item>
+        <item>Objective</item>
+    </string-array>
 </resources>

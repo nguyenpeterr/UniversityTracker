@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 public class TermRepo {
     private TermDAO termDAO;
     private TermEntity mTerm;
-    private LiveData<List<TermEntity>> allTerms;
+    private List<TermEntity> allTerms;
     private static final int NumberOfThreads = 4;
     static final ExecutorService dbExec = Executors.newFixedThreadPool(NumberOfThreads);
 
@@ -73,7 +73,7 @@ public class TermRepo {
 
 
 
-    public LiveData<List<TermEntity>> getAllTerms(){
+    public List<TermEntity> getAllTerms(){
         dbExec.execute(()-> {
             allTerms = termDAO.getAllTerms();
         });

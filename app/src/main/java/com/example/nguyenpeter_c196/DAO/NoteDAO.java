@@ -31,10 +31,10 @@ public interface NoteDAO {
     NoteEntity getNoteByID(int noteID);
 
     @Query("SELECT * FROM notes ORDER BY noteTitle DESC")
-    LiveData<List<NoteEntity>> getAllNotes();
+    List<NoteEntity> getAllNotes();
 
     @Query("SELECT * FROM notes WHERE assessmentID = :assessmentID")
-    LiveData<List<NoteEntity>> getNoteByAssessment(int assessmentID);
+    List<NoteEntity> getNoteByAssessment(int assessmentID);
 
     @Query("DELETE FROM notes")
     int deleteAllNotes();

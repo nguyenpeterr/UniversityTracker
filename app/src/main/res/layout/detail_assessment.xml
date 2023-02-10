@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detailAssessmentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assessment Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <TextView
+        android:id="@+id/detailAssessmentStartLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="Start Date:"
+        app:layout_constraintEnd_toStartOf="@+id/detailAssessmentName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailAssessmentName" />
+
+    <TextView
+        android:id="@+id/detailAssessmentEndLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:text="End Date:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detailAssessmentName"
+        app:layout_constraintTop_toBottomOf="@+id/detailAssessmentName" />
+
+    <TextView
+        android:id="@+id/detailAssessmentStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="@+id/detailAssessmentStartLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailAssessmentStartLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailAssessmentStartLabel" />
+
+    <TextView
+        android:id="@+id/detailAssessmentEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="End"
+        app:layout_constraintEnd_toEndOf="@+id/detailAssessmentEndLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailAssessmentEndLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailAssessmentEndLabel" />
+
+    <Button
+        android:id="@+id/buttonModifyAssessment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:onClick="onModifyAssessment"
+        android:text="Modify"
+        app:layout_constraintEnd_toStartOf="@+id/detailAssessmentName"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="493dp" />
+
+    <Button
+        android:id="@+id/buttonDeleteAssessment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:onClick="onDeleteAssessment"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detailAssessmentName"
+        tools:layout_editor_absoluteY="493dp" />
+
+    <TextView
+        android:id="@+id/detail_assessment_type_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Assessment Type"
+        app:layout_constraintStart_toStartOf="@+id/detailAssessmentStartLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailAssessmentStartDate" />
+
+    <TextView
+        android:id="@+id/detail_assessment_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detail_assessment_type_label"
+        app:layout_constraintTop_toBottomOf="@+id/detailAssessmentEndDate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

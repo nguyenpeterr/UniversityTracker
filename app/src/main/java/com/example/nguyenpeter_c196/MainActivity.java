@@ -10,6 +10,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static int alertCount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         //launch assessments list
         Intent i = new Intent(this, AssessmentsListActivity.class);
         startActivity(i);
+    }
+
+    public static int alertCount() {
+        alertCount++;
+        return alertCount();
     }
 
 }

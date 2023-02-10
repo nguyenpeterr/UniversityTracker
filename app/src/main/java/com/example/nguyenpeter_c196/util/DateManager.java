@@ -4,38 +4,30 @@ import androidx.room.TypeConverter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class DateManager {
-    public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+public abstract class DateManager {
+    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyy");
 
-    public static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a z", Locale.getDefault());
-
-    @TypeConverter
-    public static Date toDate(Long timestamp) {
-        return timestamp == null ? null : new Date(timestamp);
-    }
-
-    @TypeConverter
-    public static Long toTimestamp(Date date) {
-        return date == null ? null : date.getTime();
-    }
-
-
-    public static Long toTimestamp(String dateVal) {
+    public static Long toMillisec(String date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyy");
+        Date reminderDate = null;
         try {
-            Date date = DateManager.dateFormat.parse(dateVal + TimeZone.getDefault().getDisplayName());
-            return date.getTime();
+            reminderDate = simpleDateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-        catch (ParseException e) {
-            return 0l;
+        if (reminderDate != null) {
+            return reminderDate.getTime();
         }
+        return (long) -1;
     }
 
-    public static long nowDate() {
-        String currentDate = DateManager.dateFormat.format(new Date());
-        return toTimestamp(currentDate);
+    public static String date(int year, int month, int day) {
+        return dateFormat.format(LocalDate.of(year, month, day));
     }
 }

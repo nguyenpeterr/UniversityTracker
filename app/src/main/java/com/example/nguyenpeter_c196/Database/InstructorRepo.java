@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 public class InstructorRepo {
     private InstructorDAO instructorDAO;
 
-    private LiveData<List<InstructorEntity>> allInstructors;
+    private List<InstructorEntity> allInstructors;
     private static final int NumberOfThreads = 4;
     static final ExecutorService dbExec = Executors.newFixedThreadPool(NumberOfThreads);
 
@@ -76,7 +76,7 @@ public class InstructorRepo {
     }
 
     //Get methods
-    public LiveData<List<InstructorEntity>> getAllInstructors(){
+    public List<InstructorEntity> getAllInstructors(){
         return allInstructors;
     }
 
@@ -84,7 +84,7 @@ public class InstructorRepo {
         return instructorDAO.getInstructorByID(instructorID);
     }
 
-    public LiveData<List<InstructorEntity>> getInstructorByCourse(int instructorCourse){
+    public List<InstructorEntity> getInstructorByCourse(int instructorCourse){
         return instructorDAO.getInstructorByCourse(instructorCourse);
     }
 

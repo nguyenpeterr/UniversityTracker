@@ -1,42 +1,123 @@
 package com.example.nguyenpeter_c196;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.DatePicker;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nguyenpeter_c196.Database.AssessmentRepo;
+import com.example.nguyenpeter_c196.Database.CourseRepo;
+import com.example.nguyenpeter_c196.util.DateManager;
 
-public class AssessmentsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
+import java.util.Calendar;
+
+
+public class AssessmentsActivity extends AppCompatActivity {
+
+    EditText etName;
+    TextView tvAssessmentStart, tvAssessmentEnd;
+    int assessmentID;
+    int courseID;
+    String assessmentName;
+    String assessmentStart;
+    String assessmentEnd;
+    String assessmentType;
+    AssessmentRepo aRepo;
+    private DatePickerDialog datePickerDialog;
+    private Spinner assessmentTypeSpinner;
+    private String selectedAssessmentType;
+    boolean startSelected = true;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_assessment);
 
+        spinnerSelect();
+        aRepo = new AssessmentRepo(getApplication());
+        etName = findViewById(R.id.et_assessment_name);
+        tvAssessmentStart = findViewById(R.id.et_start_date);
+        tvAssessmentEnd = findViewById(R.id.et_end_date);
+        assessmentTypeSpinner = findViewById(R.id.assessment_spinner);
+        assessmentID = getIntent().getIntExtra("assessmentID", -1);
+        courseID = getIntent().getIntExtra("courseID", -1);
+        assessmentName = getIntent().getStringExtra("assessmentName");
+        assessmentStart = getIntent().getStringExtra("assessmentStart");
+        assessmentEnd = getIntent().getStringExtra("assessmentEnd");
+        assessmentType = getIntent().getStringExtra("assessmentType");
+        if(assessmentID != -1) {
+            etName.setText(assessmentName);
+            getType(assessmentTypeSpinner);
+            tvAssessmentStart.setText(assessmentStart);
+            tvAssessmentEnd.setText(assessmentEnd);
+        }
+        datePicker();
+
     }
 
-    public void onCancelAssessment(View v) {
-        //return back to assessment list on cancel button
-        Intent i = new Intent(this, AssessmentsListActivity.class);
-        startActivity(i);
+    public void spinnerSelect() {
+        assessmentTypeSpinner = findViewById(R.id.assessment_spinner);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.assessments_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        assessmentTypeSpinner.setAdapter(adapter);
+        assessmentTypeSpinner.setSelection(1);
+        assessmentTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedAssessmentType = assessmentTypeSpinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
+    private String getType(Spinner assessmentTypeSpinner) {
+       return this.assessmentTypeSpinner.getSelectedItem().toString();
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    private void datePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
+            month += 1;
+            String date = DateManager.date(year, month, day);
+            if (startSelected) {
+                tvAssessmentStart.setText(date);
+            }
+            else {
+                tvAssessmentEnd.setText(date);
+            }
 
+        };
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        datePickerDialog = new DatePickerDialog(this, dateSetListener, year, month, day);
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+    public void onCalendarStart(View view) {
+        startSelected = true;
+        datePickerDialog.show();
     }
+
+    public void onCalendarEnd(View view) {
+        startSelected = false;
+        datePickerDialog.show();
+    }
+
+
 }

@@ -31,10 +31,10 @@ public interface InstructorDAO {
     InstructorEntity getInstructorByID(int instructorID);
 
     @Query("SELECT * FROM instructors WHERE courseID = :courseID")
-    LiveData<List<InstructorEntity>> getInstructorByCourse(int courseID);
+    List<InstructorEntity> getInstructorByCourse(int courseID);
 
     @Query("SELECT * FROM instructors ORDER BY instructorName DESC")
-    LiveData<List<InstructorEntity>> getAllInstructors();
+    List<InstructorEntity> getAllInstructors();
 
     @Query("SELECT COUNT(*) FROM instructors")
     int getInstructorCount();

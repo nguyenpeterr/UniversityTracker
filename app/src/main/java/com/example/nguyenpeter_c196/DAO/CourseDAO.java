@@ -32,10 +32,10 @@ public interface CourseDAO {
     CourseEntity getCourseByID(int courseID);
 
     @Query("SELECT * FROM courses WHERE termID = :termID")
-    LiveData<List<CourseEntity>> getCoursesByTerm(int termID);
+    List<CourseEntity> getCoursesByTerm(int termID);
 
     @Query("SELECT * FROM courses ORDER BY courseStartDate DESC")
-    LiveData<List<CourseEntity>> getAllCourses();
+    List<CourseEntity> getAllCourses();
 
     @Query("DELETE FROM courses")
     int deleteAllCourses();
@@ -43,7 +43,7 @@ public interface CourseDAO {
     @Query("SELECT COUNT(*) FROM courses")
     int getCourseCount();
 
-    //Are these even necessary?
+
     @Query("SELECT COUNT(*) FROM courses WHERE termID = :termID")
     int getCountByTerm(int termID);
 

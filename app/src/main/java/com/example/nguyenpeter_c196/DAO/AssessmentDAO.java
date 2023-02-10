@@ -18,8 +18,6 @@ public interface AssessmentDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAssessment(AssessmentEntity assessmentEntity);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAllAssessments(List<AssessmentEntity> assessments);
 
     @Update
     void updateAssessment(AssessmentEntity assessmentEntity);
@@ -27,24 +25,19 @@ public interface AssessmentDAO {
     @Delete
     void deleteAssessment(AssessmentEntity assessmentEntity);
 
+    @Query("DELETE FROM assessments WHERE assessmentId == :assessmentID")
+    void deleteAssessmentByID(int assessmentID);
+
     @Query("SELECT * FROM assessments WHERE assessmentID = :assessmentID")
     AssessmentEntity getAssessmentByID(int assessmentID);
 
     @Query("SELECT * FROM assessments WHERE courseID = :courseID")
-    LiveData<List<AssessmentEntity>> getAssessmentByCourse(int courseID);
-
-    @Query("SELECT * FROM assessments ORDER BY assessmentDate DESC")
-    LiveData<List<AssessmentEntity>> getAllAssessments();
+    List<AssessmentEntity> getAssessmentByCourse(int courseID);
 
     @Query("DELETE FROM assessments")
     int deleteAllAssessments();
 
-    @Query("SELECT COUNT(*) FROM assessments")
-    int getAssessmentCount();
 
-    @Query("SELECT COUNT(*) FROM assessments WHERE courseID = :courseID")
-    int getAssessmentCountByCourse(int courseID);
-
-    @Query("SELECT COUNT(*) FROM assessments WHERE courseID IS NOT NULL")
-    int getAssessmentCountByAnyCourse();
+    @Query("SELECT * FROM assessments")
+    List<AssessmentEntity> getAllAssessments();
 }
