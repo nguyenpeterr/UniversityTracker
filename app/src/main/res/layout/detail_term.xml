@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detailTermName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Term Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <TextView
+        android:id="@+id/detailTermStartLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Start Date:"
+        app:layout_constraintEnd_toStartOf="@+id/detailTermName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+
+    <TextView
+        android:id="@+id/detailTermEndLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:text="End Date:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detailTermName"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+
+    <TextView
+        android:id="@+id/detailTermStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="@+id/detailTermStartLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailTermStartLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermStartLabel" />
+
+    <TextView
+        android:id="@+id/detailTermEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="End"
+        app:layout_constraintEnd_toEndOf="@+id/detailTermEndLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailTermEndLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermEndLabel" />
+
+    <Button
+        android:id="@+id/buttonModifyTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:onClick="onModifyTerm"
+        android:text="Modify Term"
+        app:layout_constraintBottom_toTopOf="@+id/coursesListLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/course_detail_recycler"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonModifyTerm"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <TextView
+        android:id="@+id/coursesListLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Courses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <Button
+        android:id="@+id/buttonDeleteTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="onDeleteTerm"
+        android:text="Delete Term"
+        app:layout_constraintBottom_toTopOf="@+id/coursesListLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+
+    <Button
+        android:id="@+id/addCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAddCourse"
+        android:text="Add Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_detail_recycler" />
+</androidx.constraintlayout.widget.ConstraintLayout>

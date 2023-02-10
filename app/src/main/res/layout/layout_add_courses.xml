@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".CoursesActivity"
-    tools:showIn="@layout/activity_add_courses">
+    tools:context=".CoursesActivity">
 
     <TextView
         android:id="@+id/tv_assessment_name"
@@ -118,92 +117,109 @@
         app:layout_constraintStart_toStartOf="@+id/et_end_date" />
 
     <TextView
-        android:id="@+id/tv_course_instructor"
+        android:id="@+id/instructorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:text="Course Instructor"
+        android:layout_marginTop="50dp"
+        android:text="Instructor:"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_course_status" />
 
-    <TextView
-        android:id="@+id/tv_course_instructor_text"
+    <EditText
+        android:id="@+id/et_instructor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instructor"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_course_instructor"
-        app:layout_constraintStart_toStartOf="@+id/course_spinner" />
-
-    <Spinner
-        android:id="@+id/ci_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="8"
+        android:textSize="15sp"
+        android:ems="10"
+        android:hint="Instructor Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_course_instructor"
-        app:layout_constraintStart_toEndOf="@+id/tv_course_instructor_text" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/instructorLabel"
+        app:layout_constraintStart_toStartOf="@+id/tv_course_status_text" />
 
     <TextView
-        android:id="@+id/selectedCI"
+        android:id="@+id/instructor_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:text="Selected CI"
-        app:layout_constraintEnd_toEndOf="@+id/ci_spinner"
+        android:layout_marginTop="50dp"
+        android:text="Phone No.:"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
+        app:layout_constraintTop_toBottomOf="@+id/instructorLabel" />
+
+    <EditText
+        android:id="@+id/et_instructor_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/instructor_phone"
+        app:layout_constraintStart_toStartOf="@+id/et_instructor_name" />
 
     <TextView
-        android:id="@+id/tv_assessments"
+        android:id="@+id/instructor_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="80dp"
-        android:text="Assessments"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        android:text="Email:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_course_instructor" />
+        app:layout_constraintTop_toBottomOf="@+id/instructor_phone" />
 
-    <TextView
-        android:id="@+id/tv_assessment_text"
+    <EditText
+        android:id="@+id/et_instructor_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Assessment"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_assessments"
-        app:layout_constraintStart_toStartOf="@+id/tv_course_instructor_text" />
-
-    <Spinner
-        android:id="@+id/assessment_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="8"
+        android:textSize="15sp"
+        android:ems="10"
+        android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_assessments"
-        app:layout_constraintStart_toEndOf="@+id/tv_assessment_text" />
+        app:layout_constraintBottom_toBottomOf="@+id/instructor_email"
+        app:layout_constraintStart_toStartOf="@+id/et_instructor_phone" />
 
     <TextView
-        android:id="@+id/tv_notes"
+        android:id="@+id/tv_note_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="80dp"
-        android:text="Notes"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        android:text="Note:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_assessments" />
+        app:layout_constraintTop_toBottomOf="@+id/instructor_email" />
 
-
-    <Button
-        android:id="@+id/addNoteButton"
+    <EditText
+        android:id="@+id/et_input_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onAddNoteButton"
-        android:text="Add Note"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_notes"
-        app:layout_constraintStart_toStartOf="@+id/tv_assessment_text" />
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:hint="Notes (Optional)"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_note_label"
+        app:layout_constraintStart_toStartOf="@+id/et_instructor_email" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_term_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="Save Button"
+        android:onClick="onSaveTerm"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

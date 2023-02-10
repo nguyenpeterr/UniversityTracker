@@ -16,7 +16,7 @@ public class CourseRepo {
 
     private CourseDAO courseDAO;
     private CourseEntity mCourse;
-    private LiveData<List<CourseEntity>> allCourses;
+    private List<CourseEntity> allCourses;
     private static final int NumberOfThreads = 4;
     static final ExecutorService dbExec = Executors.newFixedThreadPool(NumberOfThreads);
 
@@ -24,7 +24,7 @@ public class CourseRepo {
     public CourseRepo(Application application){
         DatabaseBuilder database = DatabaseBuilder.getDatabaseInstance(application);
         courseDAO = database.courseDAO();
-        allCourses = courseDAO.getAllCourses();
+        allCourses = (List<CourseEntity>) courseDAO.getAllCourses();
 
     }
 
@@ -77,8 +77,8 @@ public class CourseRepo {
         }
     }
 
-    public LiveData<List<CourseEntity>> getAllCourses(){
-        return allCourses;
+    public List<CourseEntity> getAllCourses(){
+        return (List<CourseEntity>) allCourses;
     }
 
     public CourseEntity getCourseByID(int courseID){

@@ -19,4 +19,7 @@
     <string name="menuassessments">Assessments</string>
     <string name="menucourses">Courses</string>
     <string name="menuhome">Home</string>
+    <string name="alertstart">Set Alert for Start Date</string>
+    <string name="alertend">Set Alert for End Date</string>
+    <string name="sharenote">Share Note</string>
 </resources>

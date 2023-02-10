@@ -14,6 +14,8 @@ public class TermsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terms_list);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     public void onAddTerm(View v) {

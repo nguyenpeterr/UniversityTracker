@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detailCourseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Course Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detailCourseStartLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Start Date:"
+        app:layout_constraintEnd_toStartOf="@+id/detailCourseName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseName" />
+
+    <TextView
+        android:id="@+id/detailCourseEndLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:text="End Date:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detailCourseName"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseName" />
+
+    <TextView
+        android:id="@+id/detailCourseStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="@+id/detailCourseStartLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailCourseStartLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseStartLabel" />
+
+    <TextView
+        android:id="@+id/detailCourseEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="End"
+        app:layout_constraintEnd_toEndOf="@+id/detailCourseEndLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailCourseEndLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseEndLabel" />
+
+    <Button
+        android:id="@+id/buttonModifyCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="15dp"
+        android:onClick="onModifyCourse"
+        android:text="Modify Term"
+        app:layout_constraintBottom_toTopOf="@+id/assessmentListLabel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/course_detail_recycler"
+        android:layout_width="378dp"
+        android:layout_height="157dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessmentListLabel" />
+
+    <TextView
+        android:id="@+id/assessmentListLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:text="Assessments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseName" />
+
+    <Button
+        android:id="@+id/buttonDeleteTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:onClick="onDeleteTerm"
+        android:text="Delete Term"
+        app:layout_constraintBottom_toTopOf="@+id/assessmentListLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/addCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAddCourse"
+        android:text="Add Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_detail_recycler" />
+
+    <TextView
+        android:id="@+id/detail_course_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Course Status"
+        app:layout_constraintEnd_toEndOf="@+id/detailCourseName"
+        app:layout_constraintStart_toStartOf="@+id/detailCourseName"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseName" />
+
+    <TextView
+        android:id="@+id/detail_course_instructor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Instructor"
+        app:layout_constraintEnd_toEndOf="@+id/detailCourseStartLabel"
+        app:layout_constraintStart_toStartOf="@+id/detailCourseStartLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailCourseStartDate" />
+
+    <TextView
+        android:id="@+id/detail_course_instructor_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Phone"
+        app:layout_constraintEnd_toEndOf="@+id/detail_course_instructor"
+        app:layout_constraintStart_toStartOf="@+id/detail_course_instructor"
+        app:layout_constraintTop_toBottomOf="@+id/detail_course_instructor" />
+
+    <TextView
+        android:id="@+id/detail_course_instructor_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:text="Email"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_course_instructor_phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detail_course_instructor_phone" />
+
+    <TextView
+        android:id="@+id/detail_course_note"
+        android:layout_width="304dp"
+        android:layout_height="112dp"
+        android:background="#F6F6F6"
+        android:shadowColor="#7A7A7A"
+        android:text="Notes"
+        app:layout_constraintBottom_toTopOf="@+id/buttonModifyCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_course_instructor_email" />
+</androidx.constraintlayout.widget.ConstraintLayout>
