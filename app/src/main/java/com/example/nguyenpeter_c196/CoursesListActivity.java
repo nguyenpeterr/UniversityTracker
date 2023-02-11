@@ -2,6 +2,8 @@ package com.example.nguyenpeter_c196;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
@@ -17,34 +19,34 @@ import java.util.ArrayList;
 
 public class CoursesListActivity extends AppCompatActivity {
 
-    public static final int addCourseCount = 1;
-    public static final int editCourseCount = 2;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_list);
 
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+//        CourseRepo cRepo = new CourseRepo(getApplication());
+//        ArrayList<CourseEntity> courses = (ArrayList<CourseEntity>) cRepo.getAllCourses();
+//        final CourseAdapter adapter = new CourseAdapter(this);
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        adapter.setCourses(courses);
     }
 
-    private void courseListView() {
-        RecyclerView rView = findViewById(R.id.recycler_view);
-        rView.setLayoutManager(new LinearLayoutManager(this));
-        rView.setHasFixedSize(true);
-
-        CourseRepo repo = new CourseRepo(getApplication());
-        ArrayList<CourseEntity> courses = (ArrayList<CourseEntity>) repo.getAllCourses();
-        final CourseAdapter courseAdapter = new CourseAdapter();
-        rView.setAdapter(courseAdapter);
-        courseAdapter.setCourses(courses);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_course_list, menu);
+        return true;
     }
 
-
-
-    public void onAddCourseButton(View v) {
-        Intent i = new Intent(this, CoursesActivity.class);
-        startActivity(i);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

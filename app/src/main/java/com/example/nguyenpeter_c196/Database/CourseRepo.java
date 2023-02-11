@@ -53,9 +53,9 @@ public class CourseRepo {
     }
 
 
-    public void deleteCourse(CourseEntity course){
+    public void deleteCourse(int courseID){
         dbExec.execute(() -> {
-            courseDAO.deleteCourse(course);
+            courseDAO.getCourseByID(courseID);
         });
         try {
             Thread.sleep(1000);
@@ -89,45 +89,8 @@ public class CourseRepo {
         return courseDAO.getCoursesByTerm(termID);
     }
 
-//    private static class InsertCourseAsyncTask extends AsyncTask<CourseEntity, Void, Void> {
-//        private CourseDAO courseDAO;
-//
-//        private InsertCourseAsyncTask(CourseDAO courseDAO){
-//            this.courseDAO = courseDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(CourseEntity... courseEntities) {
-//            courseDAO.insertCourse(courseEntities[0]);
-//            return null;
-//        }
-//    }
-//
-//    private static class DeleteCourseAsyncTask extends AsyncTask<CourseEntity, Void, Void>{
-//        private CourseDAO courseDAO;
-//
-//        private DeleteCourseAsyncTask(CourseDAO courseDAO){
-//            this.courseDAO = courseDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(CourseEntity... courseEntities) {
-//            courseDAO.deleteCourse(courseEntities[0]);
-//            return null;
-//        }
-//    }
-//
-//    private static class DeleteAllCoursesAsyncTask extends AsyncTask<Void, Void, Void>{
-//        private CourseDAO courseDAO;
-//
-//        private DeleteAllCoursesAsyncTask(CourseDAO courseDAO){
-//            this.courseDAO = courseDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            courseDAO.deleteAllCourses();
-//            return null;
-//        }
-//    }
+    public boolean isNewCourse() {
+        getAllCourses();
+        return allCourses.isEmpty();
+    }
 }

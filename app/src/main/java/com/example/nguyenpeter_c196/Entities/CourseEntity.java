@@ -12,13 +12,25 @@ public class CourseEntity {
     private String courseStartDate;
     private String courseEndDate;
     String courseStatus;
+    String instructor;
+    String phone;
+    String email;
+    String note;
     private int termID;
 
-    public CourseEntity(String courseName, String courseStartDate, String courseEndDate, String courseStatus, int termID) {
+    public CourseEntity() {
+    }
+
+    public CourseEntity(int courseID, String courseName, String courseStartDate, String courseEndDate, String courseStatus, String instructor, String phone, String email, String note, int termID) {
+        this.courseID = courseID;
         this.courseName = courseName;
         this.courseStartDate = courseStartDate;
         this.courseEndDate = courseEndDate;
         this.courseStatus = courseStatus;
+        this.instructor = instructor;
+        this.phone = phone;
+        this.email = email;
+        this.note = note;
         this.termID = termID;
     }
 
@@ -62,11 +74,59 @@ public class CourseEntity {
         this.courseStatus = courseStatus;
     }
 
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     public int getTermID() {
         return termID;
     }
 
     public void setTermID(int termID) {
         this.termID = termID;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId='" + courseID + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", courseStartDate='" + courseStartDate + '\'' +
+                ", courseEndDate='" + courseEndDate + '\'' +
+                ", courseStatus='" + courseStatus + '\'' +
+                ", instructor='" + instructor + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", note='" + note + '\'' +
+                ", termII=" + termID +
+                '}';
     }
 }

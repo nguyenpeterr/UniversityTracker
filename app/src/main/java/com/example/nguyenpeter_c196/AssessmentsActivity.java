@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nguyenpeter_c196.Database.AssessmentRepo;
 import com.example.nguyenpeter_c196.Database.CourseRepo;
+import com.example.nguyenpeter_c196.Entities.AssessmentEntity;
 import com.example.nguyenpeter_c196.util.DateManager;
 
 import java.util.Calendar;
@@ -88,6 +89,7 @@ public class AssessmentsActivity extends AppCompatActivity {
        return this.assessmentTypeSpinner.getSelectedItem().toString();
     }
 
+
     private void datePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
             month += 1;
@@ -119,5 +121,24 @@ public class AssessmentsActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
+
+    public void onSaveAssessment(View v) {
+        AssessmentEntity assessment;
+        int newAssessmentID;
+        String type = assessmentTypeSpinner.getSelectedItem().toString();
+        if(assessmentID == -1) {
+            if(aRepo.isNewAssessment()) {
+                newAssessmentID = 1;
+            } else {
+                newAssessmentID = aRepo.getAllAssessments().get(aRepo.getAllAssessments().size() - 1).getAssessmentID() + 1;
+            }
+            assessment = new AssessmentEntity(newAssessmentID, etName.getText().toString(), tvAssessmentStart.getText().toString(),tvAssessmentEnd.getText().toString(), type, courseID);
+            aRepo.insertAssessment(assessment);
+        } else {
+            assessment = new AssessmentEntity(assessmentID, etName.getText().toString(), tvAssessmentStart.getText().toString(),tvAssessmentEnd.getText().toString(), type, courseID);
+            aRepo.updateAssessment(assessment);
+        }
+        finish();
+    }
 
 }

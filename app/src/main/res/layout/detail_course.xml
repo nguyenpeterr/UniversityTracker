@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".CourseDetail">
 
     <TextView
         android:id="@+id/detailCourseName"
@@ -61,10 +62,10 @@
         android:id="@+id/buttonModifyCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="65dp"
         android:layout_marginBottom="15dp"
         android:onClick="onModifyCourse"
-        android:text="Modify Term"
+        android:text="Modify"
         app:layout_constraintBottom_toTopOf="@+id/assessmentListLabel"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -91,22 +92,22 @@
         app:layout_constraintTop_toBottomOf="@+id/detailCourseName" />
 
     <Button
-        android:id="@+id/buttonDeleteTerm"
+        android:id="@+id/buttonDeleteCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="65dp"
         android:layout_marginBottom="15dp"
-        android:onClick="onDeleteTerm"
-        android:text="Delete Term"
+        android:onClick="onDeleteCourse"
+        android:text="Delete"
         app:layout_constraintBottom_toTopOf="@+id/assessmentListLabel"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/addCourse"
+        android:id="@+id/addAssessmentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onAddCourse"
-        android:text="Add Course"
+        android:onClick="onAddAssessment"
+        android:text="Add Assessment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

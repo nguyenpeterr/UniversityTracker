@@ -20,7 +20,7 @@
         app:layout_goneMarginTop="30dp" />
 
     <EditText
-        android:id="@+id/et_assessment_name"
+        android:id="@+id/et_course_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -48,7 +48,7 @@
         android:ems="9"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/tv_note"
-        app:layout_constraintStart_toStartOf="@+id/et_assessment_name" />
+        app:layout_constraintStart_toStartOf="@+id/et_course_name" />
 
     <TextView
         android:id="@+id/tv_end_date"
@@ -68,7 +68,7 @@
         android:ems="9"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/tv_end_date"
-        app:layout_constraintStart_toStartOf="@+id/et_assessment_name" />
+        app:layout_constraintStart_toStartOf="@+id/et_course_name" />
 
     <ImageButton
         android:id="@+id/startCalendarButton"
@@ -78,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@+id/et_end_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_start_date"
-        app:layout_constraintTop_toBottomOf="@+id/et_assessment_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_course_name"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     <ImageButton
@@ -215,7 +215,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="Save Button"
-        android:onClick="onSaveTerm"
+        android:onClick="onSaveCourse"
         app:backgroundTint="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

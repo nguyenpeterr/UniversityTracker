@@ -7,6 +7,8 @@
     <string name="asseessmentlist">Assessment Name</string>
     <string name="courseslist">Course Name</string>
     <string name="coursesedit">Course Editor</string>
+    <string name="coursedetail">Course Detail</string>
+    <string name="assessmentdetail">Course Detail</string>
     <string name="courseterm">Course Term</string>
     <string name="instructorslist">Course Instructor</string>
     <string name="addci">Add Instructor</string>

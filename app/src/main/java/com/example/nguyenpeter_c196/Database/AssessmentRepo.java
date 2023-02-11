@@ -95,9 +95,9 @@ public class AssessmentRepo {
         return mAssessment;
     }
 
-    public List<AssessmentEntity> getAssessmentByCourse(int assessmentCourse){
+    public List<AssessmentEntity> getAssessmentByCourse(int id){
         dbExec.execute(()-> {
-            allAssessments = assessmentDAO.getAssessmentByCourse(assessmentCourse);
+            allAssessments = assessmentDAO.getAssessmentByCourse(id);
         });
         try {
             Thread.sleep(1000);
@@ -105,6 +105,11 @@ public class AssessmentRepo {
             e.printStackTrace();
         }
         return allAssessments;
+    }
+
+    public boolean isNewAssessment() {
+        getAllAssessments();
+        return allAssessments.isEmpty();
     }
 
 }
