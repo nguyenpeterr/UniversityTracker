@@ -31,7 +31,7 @@ public class TermRepo {
             termDAO.insertTerm(term);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -42,19 +42,19 @@ public class TermRepo {
             termDAO.updateTerm(term);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
 
-    public void deleteTerm(TermEntity term){
+    public void deleteTerm(int termID){
         dbExec.execute(()-> {
-            termDAO.deleteTerm(term);
+            termDAO.deleteTermByID(termID);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -65,20 +65,18 @@ public class TermRepo {
             termDAO.deleteAllTerms();
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
-
 
     public List<TermEntity> getAllTerms(){
         dbExec.execute(()-> {
             allTerms = termDAO.getAllTerms();
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -90,53 +88,16 @@ public class TermRepo {
             mTerm = termDAO.getTermByID(termID);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return mTerm;
     }
 
+    public boolean isNewTerm() {
+        getAllTerms();
+        return allTerms.isEmpty();
+    }
 
-//    private static class InsertTermAsyncTask extends AsyncTask<TermEntity, Void, Void> {
-//        private TermDAO termDAO;
-//
-//        private InsertTermAsyncTask(TermDAO termDAO){
-//            this.termDAO = termDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(TermEntity... termEntities) {
-//            termDAO.insertTerm(termEntities[0]);
-//            return null;
-//        }
-//    }
-
-//    private static class DeleteTermAsyncTask extends AsyncTask<TermEntity, Void, Void>{
-//        private TermDAO termDAO;
-//
-//        private DeleteTermAsyncTask(TermDAO termDAO){
-//            this.termDAO = termDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(TermEntity... termEntities) {
-//            termDAO.deleteTerm(termEntities[0]);
-//            return null;
-//        }
-//    }
-
-//    private static class DeleteAllTermsAsyncTask extends AsyncTask<Void, Void, Void>{
-//        private TermDAO termDAO;
-//
-//        private DeleteAllTermsAsyncTask(TermDAO termDAO){
-//            this.termDAO = termDAO;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            termDAO.deleteAllTerms();
-//            return null;
-//        }
-//    }
 }

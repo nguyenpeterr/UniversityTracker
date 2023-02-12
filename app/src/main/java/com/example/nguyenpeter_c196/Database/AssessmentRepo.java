@@ -31,7 +31,7 @@ public class AssessmentRepo {
             assessmentDAO.insertAssessment(assessment);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -42,7 +42,7 @@ public class AssessmentRepo {
             assessmentDAO.updateAssessment(assessment);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class AssessmentRepo {
             assessmentDAO.deleteAssessmentByID(assessmentID);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class AssessmentRepo {
             assessmentDAO.deleteAllAssessments();
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class AssessmentRepo {
             allAssessments = assessmentDAO.getAllAssessments();
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -88,7 +88,7 @@ public class AssessmentRepo {
             mAssessment = assessmentDAO.getAssessmentByID(assessmentID);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -100,7 +100,7 @@ public class AssessmentRepo {
             allAssessments = assessmentDAO.getAssessmentByCourse(id);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

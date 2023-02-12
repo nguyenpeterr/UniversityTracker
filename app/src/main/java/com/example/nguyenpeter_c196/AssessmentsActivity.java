@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nguyenpeter_c196.Database.AssessmentRepo;
-import com.example.nguyenpeter_c196.Database.CourseRepo;
 import com.example.nguyenpeter_c196.Entities.AssessmentEntity;
 import com.example.nguyenpeter_c196.util.DateManager;
 
@@ -82,7 +81,6 @@ public class AssessmentsActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private String getType(Spinner assessmentTypeSpinner) {

@@ -8,7 +8,8 @@
     <string name="courseslist">Course Name</string>
     <string name="coursesedit">Course Editor</string>
     <string name="coursedetail">Course Detail</string>
-    <string name="assessmentdetail">Course Detail</string>
+    <string name="assessmentdetail">Assessment Detail</string>
+    <string name="termdetail">Term Detail</string>
     <string name="courseterm">Course Term</string>
     <string name="instructorslist">Course Instructor</string>
     <string name="addci">Add Instructor</string>
@@ -31,5 +32,13 @@
     <string-array name="assessments_array">
         <item>Performance</item>
         <item>Objective</item>
+    </string-array>
+
+    <string name="C196_Application_Courses">CoursesSpinner</string>
+    <string-array name="course_status_array">
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Dropped</item>
+        <item>Plan to take</item>
     </string-array>
 </resources>

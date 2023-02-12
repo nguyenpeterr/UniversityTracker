@@ -1,11 +1,11 @@
 package com.example.nguyenpeter_c196;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -36,6 +36,7 @@ public class CoursesActivity extends AppCompatActivity {
     CourseRepo cRepo;
     private DatePickerDialog datePickerDialog;
     private Spinner courseStatusSpinner;
+    private String selectedCourseStatus;
     private boolean startSelected = true;
 
 
@@ -43,10 +44,12 @@ public class CoursesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_courses);
+
+        spinnerSelect();
         cRepo = new CourseRepo(getApplication());
         etCourseName = findViewById(R.id.et_course_name);
-        startDate = findViewById(R.id.et_start_date);
-        endDate = findViewById(R.id.et_end_date);
+        startDate = findViewById(R.id.et_course_start_date);
+        endDate = findViewById(R.id.et_course_end_date);
         etInstructor = findViewById(R.id.et_instructor_name);
         etPhone = findViewById(R.id.et_instructor_phone);
         etEmail = findViewById(R.id.et_instructor_email);
@@ -74,6 +77,26 @@ public class CoursesActivity extends AppCompatActivity {
         }
         datePicker();
     }
+
+    public void spinnerSelect() {
+        courseStatusSpinner = findViewById(R.id.course_spinner);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.course_status_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        courseStatusSpinner.setAdapter(adapter);
+        courseStatusSpinner.setSelection(1);
+        courseStatusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedCourseStatus = courseStatusSpinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
 
     private void datePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {

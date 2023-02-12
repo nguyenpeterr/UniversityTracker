@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".TermDetail">
 
     <TextView
-        android:id="@+id/detailTermName"
+        android:id="@+id/detailTermNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Term Name"
@@ -19,22 +20,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:text="Start Date:"
-        app:layout_constraintEnd_toStartOf="@+id/detailTermName"
+        app:layout_constraintEnd_toStartOf="@+id/detailTermNameLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+        app:layout_constraintTop_toBottomOf="@+id/detailTermNameLabel" />
 
     <TextView
         android:id="@+id/detailTermEndLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:text="End Date:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detailTermName"
-        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+        app:layout_constraintStart_toEndOf="@+id/detailTermNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/detailTermNameLabel" />
 
     <TextView
         android:id="@+id/detailTermStartDate"
@@ -66,7 +67,7 @@
         android:text="Modify Term"
         app:layout_constraintBottom_toTopOf="@+id/coursesListLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+        app:layout_constraintTop_toBottomOf="@+id/detailTermNameLabel" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/course_detail_recycler"
@@ -83,11 +84,12 @@
         android:id="@+id/coursesListLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
         android:text="Courses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="300dp" />
+        app:layout_constraintTop_toBottomOf="@+id/detailTermNameLabel" />
 
     <Button
         android:id="@+id/buttonDeleteTerm"
@@ -99,7 +101,7 @@
         android:text="Delete Term"
         app:layout_constraintBottom_toTopOf="@+id/coursesListLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailTermName" />
+        app:layout_constraintTop_toBottomOf="@+id/detailTermNameLabel" />
 
     <Button
         android:id="@+id/addCourse"

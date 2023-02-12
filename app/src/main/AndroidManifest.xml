@@ -57,6 +57,11 @@
             android:parentActivityName=".TermsListActivity"
             android:label="@string/editterm"
             ></activity>
+        <activity
+            android:name=".TermDetail"
+            android:parentActivityName=".TermsListActivity"
+            android:label="@string/termdetail"
+            ></activity>
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

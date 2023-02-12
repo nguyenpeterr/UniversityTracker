@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_assessment_name" />
 
     <EditText
-        android:id="@+id/et_start_date"
+        android:id="@+id/et_course_start_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="@string/courseslist"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_note" />
 
     <EditText
-        android:id="@+id/et_end_date"
+        android:id="@+id/et_course_end_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="@string/courseslist"
@@ -75,9 +75,9 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:onClick="onSelectStart"
-        app:layout_constraintBottom_toTopOf="@+id/et_end_date"
+        app:layout_constraintBottom_toTopOf="@+id/et_course_end_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/et_start_date"
+        app:layout_constraintStart_toEndOf="@+id/et_course_start_date"
         app:layout_constraintTop_toBottomOf="@+id/et_course_name"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
@@ -86,10 +86,10 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:onClick="onSelectEnd"
-        app:layout_constraintBottom_toBottomOf="@+id/et_end_date"
+        app:layout_constraintBottom_toBottomOf="@+id/et_course_end_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/et_end_date"
-        app:layout_constraintTop_toBottomOf="@+id/et_start_date"
+        app:layout_constraintStart_toEndOf="@+id/et_course_end_date"
+        app:layout_constraintTop_toBottomOf="@+id/et_course_start_date"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     <TextView
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:text="Status"
         app:layout_constraintBottom_toBottomOf="@+id/tv_course_status"
-        app:layout_constraintStart_toStartOf="@+id/et_end_date" />
+        app:layout_constraintStart_toStartOf="@+id/et_course_end_date" />
 
     <TextView
         android:id="@+id/instructorLabel"

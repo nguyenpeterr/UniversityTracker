@@ -1,9 +1,6 @@
 package com.example.nguyenpeter_c196.Database;
 
 import android.app.Application;
-import android.os.AsyncTask;
-
-import androidx.lifecycle.LiveData;
 
 import com.example.nguyenpeter_c196.DAO.CourseDAO;
 import com.example.nguyenpeter_c196.Entities.CourseEntity;
@@ -24,7 +21,7 @@ public class CourseRepo {
     public CourseRepo(Application application){
         DatabaseBuilder database = DatabaseBuilder.getDatabaseInstance(application);
         courseDAO = database.courseDAO();
-        allCourses = (List<CourseEntity>) courseDAO.getAllCourses();
+        allCourses = courseDAO.getAllCourses();
 
     }
 
@@ -33,7 +30,7 @@ public class CourseRepo {
             courseDAO.insertCourse(course);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -45,7 +42,7 @@ public class CourseRepo {
             courseDAO.updateCourse(course);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -58,7 +55,7 @@ public class CourseRepo {
             courseDAO.getCourseByID(courseID);
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -70,7 +67,7 @@ public class CourseRepo {
             courseDAO.deleteAllCourses();
         });
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();

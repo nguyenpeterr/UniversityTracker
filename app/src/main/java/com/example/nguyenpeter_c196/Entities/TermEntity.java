@@ -11,7 +11,8 @@ public class TermEntity {
     private String termStartDate;
     private String termEndDate;
 
-    public TermEntity(String termName, String termStartDate, String termEndDate) {
+    public TermEntity(int termID, String termName, String termStartDate, String termEndDate) {
+        this.termID = termID;
         this.termName = termName;
         this.termStartDate = termStartDate;
         this.termEndDate = termEndDate;
@@ -47,5 +48,9 @@ public class TermEntity {
 
     public void setTermEndDate(String termEndDate) {
         this.termEndDate = termEndDate;
+    }
+
+    public String toString() {
+        return "Term{" + "termID=" + termID + ", termName='" + termName + '\'' + ", termStartDate='" + termStartDate + '\'' + ", termEndDate='" + termEndDate + '\'' + "}";
     }
 }
