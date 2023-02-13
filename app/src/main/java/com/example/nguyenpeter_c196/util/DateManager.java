@@ -1,20 +1,17 @@
 package com.example.nguyenpeter_c196.util;
 
-import androidx.room.TypeConverter;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 
 public abstract class DateManager {
-    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyy");
+    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM-dd-yyy");
 
     public static Long toMillisec(String date) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyy", Locale.US);
         Date reminderDate = null;
         try {
             reminderDate = simpleDateFormat.parse(date);

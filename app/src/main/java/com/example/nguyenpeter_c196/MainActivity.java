@@ -1,16 +1,15 @@
 package com.example.nguyenpeter_c196;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int alertCount;
+    private static int alertNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public static int alertCount() {
-        alertCount++;
-        return alertCount();
+    public static int getAlertNumber() {
+        alertNumber++;
+        return alertNumber;
     }
 
 }

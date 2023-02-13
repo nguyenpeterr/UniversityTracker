@@ -62,22 +62,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
+        android:layout_marginTop="100dp"
         android:onClick="onModifyAssessment"
         android:text="Modify"
-        app:layout_constraintEnd_toStartOf="@+id/detailAssessmentName"
+        app:layout_constraintEnd_toEndOf="@+id/detail_assessment_type_label"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="493dp" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_assessment_type_label" />
 
     <Button
         android:id="@+id/buttonDeleteAssessment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
+        android:layout_marginTop="100dp"
         android:onClick="onDeleteAssessment"
         android:text="Delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detailAssessmentName"
-        tools:layout_editor_absoluteY="493dp" />
+        app:layout_constraintStart_toStartOf="@+id/detail_assessment_type"
+        app:layout_constraintTop_toBottomOf="@+id/detail_assessment_type" />
 
     <TextView
         android:id="@+id/detail_assessment_type_label"

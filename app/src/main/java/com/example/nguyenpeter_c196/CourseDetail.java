@@ -132,7 +132,7 @@ public class CourseDetail extends AppCompatActivity {
         String message = alertMessage ? alertStartMessage : alertEndMessage;
         i.putExtra("key", message);
         PendingIntent broadcast = PendingIntent.getBroadcast(this,
-                MainActivity.alertCount(), i, PendingIntent.FLAG_IMMUTABLE);
+                MainActivity.getAlertNumber(), i, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, alert, broadcast);
     }

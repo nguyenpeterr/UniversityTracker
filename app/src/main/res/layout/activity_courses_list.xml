@@ -44,7 +44,7 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/course_recycler_view"
             tools:listitem="@layout/layout_courses_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

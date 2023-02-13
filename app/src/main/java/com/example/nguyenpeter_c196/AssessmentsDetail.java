@@ -1,7 +1,6 @@
 package com.example.nguyenpeter_c196;
 
 import android.app.AlarmManager;
-import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,12 +71,12 @@ public class AssessmentsDetail extends AppCompatActivity {
         }
     }
 
-    public boolean initAssessmentMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_assessment_detail, menu);
         return true;
     }
 
-    public boolean selectedAssessmentMenu(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case android.R.id.home:
                 this.finish();
@@ -102,7 +99,7 @@ public class AssessmentsDetail extends AppCompatActivity {
         Intent i = new Intent(this, ReceiverClass.class);
         String mAlert = alertMessage ? alertStartMessage : alertEndMessage;
         i.putExtra("key", mAlert);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, MainActivity.alertCount(), i, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, MainActivity.getAlertNumber(), i, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, alert, broadcast);
     }
