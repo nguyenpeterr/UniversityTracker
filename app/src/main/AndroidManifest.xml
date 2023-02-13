@@ -15,7 +15,6 @@
             android:name=".util.ReceiverClass"
             android:enabled="true"
             android:exported="true">
-
         </receiver>
         <activity
             android:name=".TermsListActivity"

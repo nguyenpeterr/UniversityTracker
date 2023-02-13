@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +30,7 @@ public class AssessmentsDetail extends AppCompatActivity {
     String assessmentEnd;
     AssessmentRepo aRepo;
     final String alertStartMessage = "ALERT: Assessment begins today!";
-    final String alertEndMessage = "ALERT: Assessment ends today1";
+    final String alertEndMessage = "ALERT: Assessment ends today!";
     private boolean update = false, alertMessage;
 
     @Override
@@ -84,10 +85,12 @@ public class AssessmentsDetail extends AppCompatActivity {
             case R.id.set_assessment_start_alert:
                 alertMessage = true;
                 setReminder(assessmentStart);
+                Toast.makeText(getApplicationContext(), "Alert for Start Date is set!", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.set_assessment_end_alert:
                 alertMessage = false;
                 setReminder(assessmentEnd);
+                Toast.makeText(getApplicationContext(), "Alert for End Date is set!", Toast.LENGTH_SHORT).show();
                 return true;
 
         }
@@ -95,13 +98,13 @@ public class AssessmentsDetail extends AppCompatActivity {
     }
 
     private void setReminder(String date) {
-        Long alert = DateManager.toMillisec(date);
-        Intent i = new Intent(this, ReceiverClass.class);
+        Long trigger = DateManager.toMillisec(date);
+        Intent i = new Intent(AssessmentsDetail.this, ReceiverClass.class);
         String mAlert = alertMessage ? alertStartMessage : alertEndMessage;
         i.putExtra("key", mAlert);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, MainActivity.getAlertNumber(), i, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent sender = PendingIntent.getBroadcast(this, MainActivity.getAlertNumber(), i, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, alert, broadcast);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
     }
 
     public void onDeleteAssessment(View v) {

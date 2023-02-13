@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -114,10 +116,12 @@ public class CourseDetail extends AppCompatActivity {
             case R.id.set_course_start_alert:
                 alertMessage = true;
                 setReminder(courseStart);
+                Toast.makeText(getApplicationContext(), "Alert for Start Date is set!", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.set_course_end_alert:
                 alertMessage = false;
                 setReminder(courseEnd);
+                Toast.makeText(getApplicationContext(), "Alert for End Date is set!", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.share_course_note:
                 shareNote();
@@ -127,14 +131,14 @@ public class CourseDetail extends AppCompatActivity {
     }
 
     private void setReminder(String date) {
-        Long alert = DateManager.toMillisec(date);
+        Long trigger = DateManager.toMillisec(date);
         Intent i = new Intent(this, ReceiverClass.class);
         String message = alertMessage ? alertStartMessage : alertEndMessage;
         i.putExtra("key", message);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this,
+        PendingIntent sender = PendingIntent.getBroadcast(this,
                 MainActivity.getAlertNumber(), i, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, alert, broadcast);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
     }
 
     private void shareNote() {
